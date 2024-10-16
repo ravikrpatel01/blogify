@@ -1,0 +1,44 @@
+<footer class="bg-dark text-light mt-5">
+    <div class="container py-4">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-md-4">
+          <h5>About Blogify</h5>
+          <p>Blogify is a platform where you can share your thoughts, explore new ideas, and engage with the global blogging community.</p>
+        </div>
+        
+        <!-- Quick Links Section -->
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="/" class="text-light">Home</a></li>
+            <li><a href="/blog/add-new" class="text-light">Add Blog</a></li>
+            <% if (!locals.user) { %>
+              <li><a href="/user/signup" class="text-light">Sign Up</a></li>
+              <li><a href="/user/signin" class="text-light">Sign In</a></li>
+            <% } %>
+          </ul>
+        </div>
+  
+        <!-- Contact Section -->
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <p>Email: support@blogify.com</p>
+          <p>Phone: +91 6832000145</p>
+          <div>
+            <a href="#" class="text-light me-2"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-light me-2"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-light me-2"><i class="fab fa-github"></i></a>
+            <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright Section -->
+      <div class="text-center py-3 mt-3 border-top border-light">
+        &copy; 2024 Blogify | All rights reserved.
+      </div>
+    </div>
+  </footer>
+  

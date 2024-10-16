@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Home Page</title>
+    <style>
+        .card{
+            transition: 0.3s ease-in-out;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .card:hover{
+            scale: 1.05;
+        }
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container mt-4 ">
+        <h1 class="text-center mb-1">Explore Our Latest Blogs</h1> 
+        <p class="text-center  mb-4">Stay updated with the latest insights, stories, and news. Dive into our articles below.</p>
+
+        <div class="row row-cols-4">
+            <% blogs.forEach(blog => { %>
+                <div class="col">
+                    <div class="card col" style="width: 18.5rem; height: 344px; margin-bottom: 1rem;">
+                        <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="<%= blog.title %>" style="height: 180px; object-fit: cover;">
+                        <div class="card-body text-bg-light" style="height: 100px; padding: 10px;">
+                            <h5 class="card-title" style="text-overflow: ellipsis;">
+                                <%= blog.title %>
+                            </h5>
+                            <a href="/blog/<%= blog._id %>" class="btn btn-primary" style="position: absolute; bottom: 20px">View Blog</a>
+                        </div>
+                    </div>
+                </div>                
+            <% }) %>
+        </div>        
+    </div>    
+
+    <%- include('./partials/footer') %>
+    <%- include('./partials/scripts') %>
+</body>
+</html>
