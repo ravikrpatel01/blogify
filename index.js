@@ -36,10 +36,6 @@ app.get('/', async (req, res) => {
     });
 })
 
-app.use((req, res) => {
-    res.status(404).send('404 Not Found');
-});
-
 app.use('/user', userRoute);
 app.use('/blog', blogRoute);
 app.use(express.static(path.resolve('./public')));
