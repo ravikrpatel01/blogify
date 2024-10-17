@@ -24,14 +24,19 @@ router.get('/add-new', (req, res) => {
 })
 
 router.post('/', upload.single('coverImage'), async (req, res) => {
-    const {title, body} = req.body;
-    const blog = await Blog.create({
-        title,
-        body,
-        createdBy: req.user._id,
-        coverImageURL: `uploads/${req.file.filename}`
-    });
-    return res.redirect(`blog/${blog._id}`);
+    try {
+        const { title, body } = req.body;
+        const blog = await Blog.create({
+          title,
+          body,
+          createdBy: req.user._id,
+          coverImageURL: `uploads/${req.file.filename}`,
+        });
+        return res.redirect(`blog/${blog._id}`);
+      } catch (err) {
+        console.error('Error creating blog:', err); // Logs the error
+        return res.status(500).send('Internal Server Error');
+      }
 })
 
 router.get('/:id', async (req, res) => {
